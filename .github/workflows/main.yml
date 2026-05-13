@@ -42,7 +42,7 @@ on:
         options:
           - '25  (اینترنت ضعیف - فایل‌های کوچک)'
           - '50  (متوسط)'
-          - '1000 (حداکثر - برای فایل‌های حجیم)'
+          - '90 (حداکثر - برای فایل‌های حجیم)'
       delete_old_archives:
         description: 'پاک کردن فایل‌های قبلی (در صورت تیک زدن، تمام آرشیوهای قدیمی حذف میشن)'
         required: false
@@ -82,7 +82,7 @@ jobs:
         id: parse
         run: |
           SIZE=$(echo "${{ github.event.inputs.split_size }}" | grep -oP '\d+')
-          echo "split_mb=${SIZE:-1000}" >> $GITHUB_OUTPUT
+          echo "split_mb=${SIZE:-90}" >> $GITHUB_OUTPUT
 
           cat > urls.txt << URLEOF
           ${{ github.event.inputs.file_url_1 }}
